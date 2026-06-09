@@ -60,6 +60,23 @@ pyinstaller --noconfirm --clean ScreenshotMasker.spec
 dist/ScreenshotMasker/ScreenshotMasker.exe
 ```
 
+## 生成安装包
+
+安装 Inno Setup 6 后运行：
+
+```powershell
+pyinstaller --noconfirm --clean ScreenshotMasker.spec
+& "$env:LOCALAPPDATA\Programs\Inno Setup 6\ISCC.exe" installer\ScreenshotMasker.iss
+```
+
+安装包会生成到：
+
+```text
+outputs/ScreenshotMasker_Setup.exe
+```
+
+当前安装包未做代码签名。未签名文件可能被 Windows SmartScreen 或安全软件提示风险；正式分发建议购买代码签名证书并对安装包签名。
+
 ## 隐私说明
 
 - 截图编辑、打码、模糊、马赛克处理在本地完成。
